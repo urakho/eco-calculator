@@ -3,13 +3,89 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Eco price calculator</title>
+        <title>Eco Price Calculator</title>
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
-        <h1>Eco price calculator</h1>
-        <p><b>Price Calculator</b> is a web application designed to calculate the cost of goods in the game <b>ECO</b>.
-            The project aims to streamline price estimations by considering crafting recipes, upgrade modules,
-            and the base cost of raw materials such as soil, sand, stone, wood, and more.</p>
-    </body>    
+        <!-- Header -->
+        <header>
+            <h1>Eco Price Calculator</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <p><b>Price Calculator</b> is a web application designed to calculate the cost of goods in the game <b>ECO</b>.
+                The project aims to streamline price estimations by considering crafting recipes, upgrade modules,
+                and the base cost of raw materials such as soil, sand, stone, wood, and more.</p>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Jura Khozin. All rights reserved. Licensed under the <a href="/LICENSE" target="_blank">MIT License</a>.</p>
+        </footer>
+
+        <!-- Disclaimer Modal -->
+        <div id="disclaimer-modal" class="modal">
+            <div class="modal-content">
+                <h2>Disclaimer</h2>
+                <p>This website, <b>ECO Price Calculator</b>, is developed solely for entertainment and informational purposes. 
+                   The calculations, price estimates, and resource evaluations presented on this site are based on in-game data 
+                   and user-generated information. They do not represent official game data, nor are they endorsed by the developers 
+                   or publishers of ECO.</p>
+                <p>By continuing to use this website, you confirm that you understand and accept these terms. 
+                   If you do not agree, please exit the site immediately.</p>
+                <button onclick="acceptDisclaimer()">Accept</button>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // Check if disclaimer was accepted
+            if (!document.cookie.includes("disclaimerAccepted=true")) {
+                document.getElementById("disclaimer-modal").style.display = "block";
+            }
+
+            // Accept Disclaimer and set cookie
+            function acceptDisclaimer() {
+                document.cookie = "disclaimerAccepted=true; path=/; max-age=31536000"; // 1 year
+                document.getElementById("disclaimer-modal").style.display = "none";
+            }
+        </script>
+
+        <!-- Styles for the modal -->
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border-radius: 8px;
+                width: 50%;
+                text-align: center;
+            }
+            button {
+                margin-top: 15px;
+                padding: 10px 20px;
+                border: none;
+                background-color: #0070f3;
+                color: white;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #005bb5;
+            }
+        </style>
+    </body>
 </html>
