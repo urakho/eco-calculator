@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Eco Price Calculator</title>
         <link rel="stylesheet" href="styles/main.css">
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     </head>
     <body>
         <!-- Header -->
@@ -25,17 +26,12 @@
         </footer>
 
         <!-- Disclaimer Modal -->
-        <div id="disclaimer-modal" class="modal">
-            <div class="modal-content">
-                <h2>Disclaimer</h2>
-                <p>This website, <b>ECO Price Calculator</b>, is developed solely for entertainment and informational purposes. 
-                   The calculations, price estimates, and resource evaluations presented on this site are based on in-game data 
-                   and user-generated information. They do not represent official game data, nor are they endorsed by the developers 
-                   or publishers of ECO.</p>
-                <p>By continuing to use this website, you confirm that you understand and accept these terms. 
-                   If you do not agree, please exit the site immediately.</p>
-                <button onclick="acceptDisclaimer()">Accept</button>
-            </div>
+        <div 
+            id="disclaimer-modal" 
+            class="modal"
+            hx-get="disclaimer.html"
+            hx-trigger="load"
+            hx-swap="innerHTML">
         </div>
 
         <!-- JavaScript -->
