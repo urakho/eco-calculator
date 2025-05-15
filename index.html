@@ -24,14 +24,7 @@
         <footer>
             <p>
                 &copy; 2025 Jura Khozin. All rights reserved. Licensed under the
-                <a href="#"
-                hx-get="/LICENSE"
-                hx-target="#modal-body"
-                hx-trigger="click"
-                hx-swap="innerHTML"
-                onclick="openLicenseModal(event)">
-                MIT License
-                </a>.
+                <a href="#" onclick="openLicenseModal(event)">MIT License</a>.
             </p>
         </footer>
 
@@ -51,8 +44,13 @@
         <!-- License Modal -->
         <div id="license-modal" class="modal">
             <div class="modal-content">
-                <button class="modal-close" onclick="closeLicenseModal()">×</button>
-                <pre id="modal-body" class="modal-body">Loading…</pre>
+                <pre
+                    class="modal-body"
+                    hx-get="LICENSE"
+                    hx-trigger="load"
+                    hx-swap="innerHTML">
+                </pre>
+                <button onclick="closeLicenseModal()">Agree</button>
             </div>
         </div>
 
@@ -71,18 +69,12 @@
 
             function openLicenseModal(event) {
                 event.preventDefault();
-                document.getElementById('license-modal').classList.add('open');
+                document.getElementById('license-modal').style.display = "block";
             }
 
             function closeLicenseModal() {
-                document.getElementById('license-modal').classList.remove('open');
+                document.getElementById('license-modal').style.display = "none";
             }
-
-            // Закрывать по клику вне контента
-            document.getElementById('license-modal')
-                .addEventListener('click', function(e) {
-                if (e.target === this) closeLicenseModal();
-                });
         </script>
     </body>
 </html>
