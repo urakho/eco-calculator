@@ -23,10 +23,16 @@
 
         <!-- Footer -->
         <footer>
-            <p>
-                &copy; 2025 Jura Khozin. All rights reserved. Licensed under the
-                <a href="#" onclick="openLicenseModal(event)">MIT License</a>.
-            </p>
+            <div class="footer-left">
+                <p>
+                    &copy; 2025 Jura Khozin. All rights reserved. Licensed under the
+                    <a href="#" onclick="openModal(event, 'license-modal')">MIT License</a>.
+                </p>
+            </div>
+            <div class="footer-right">
+                <a href="#" onclick="openModal(event, 'disclaimer-modal')">Disclaimer</a>
+                <a href="#" onclick="openModal(event, 'about-modal')">About</a>
+            </div>
         </footer>
 
         <!-- Disclaimer Modal -->
@@ -43,6 +49,20 @@
             </div>
         </div>
 
+        <!-- About Modal -->
+        <div id="about-modal" class="modal">
+            <div class="modal-content">
+                <div
+                    hx-get="README.md"
+                    hx-trigger="load"
+                    hx-swap="innerHTML"
+                    hx-ext="markdown"
+                    >
+                </div>
+                <button onclick="closeModal('about-modal')">OK</button>
+            </div>
+        </div>
+
         <!-- License Modal -->
         <div id="license-modal" class="modal">
             <div class="modal-content">
@@ -52,7 +72,7 @@
                     hx-trigger="load"
                     hx-swap="innerHTML">
                 </pre>
-                <button onclick="closeLicenseModal()">Agree</button>
+                <button onclick="closeModal('license-modal')">Agree</button>
             </div>
         </div>
 
@@ -69,13 +89,13 @@
                 document.getElementById("disclaimer-modal").style.display = "none";
             }
 
-            function openLicenseModal(event) {
+            function openModal(event, id) {
                 event.preventDefault();
-                document.getElementById('license-modal').style.display = "block";
+                document.getElementById(id).style.display = "block";
             }
 
-            function closeLicenseModal() {
-                document.getElementById('license-modal').style.display = "none";
+            function closeModal(id) {
+                document.getElementById(id).style.display = "none";
             }
 
             htmx.defineExtension('markdown', {
