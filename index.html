@@ -36,12 +36,16 @@
         </footer>
 
         <!-- Disclaimer Modal -->
-        <div 
-            id="disclaimer-modal" 
-            class="modal"
-            hx-get="disclaimer.html"
-            hx-trigger="load"
-            hx-swap="innerHTML">
+        <div id="disclaimer-modal" class="modal">
+            <div class="modal-content">
+                <div
+                    hx-get="disclaimer.html"
+                    hx-trigger="load"
+                    hx-swap="innerHTML"
+                    >
+                </div>
+                <button onclick="acceptDisclaimer()">Accept</button>
+            </div>
         </div>
 
         <!-- License Modal -->
