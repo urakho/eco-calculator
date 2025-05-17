@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="scripts/main.js"></script>
     </head>
     <body>
         <!-- Header -->
@@ -155,15 +156,6 @@
             function acceptDisclaimer() {
                 document.cookie = "disclaimerAccepted=true; path=/; max-age=31536000"; // 1 year
                 document.getElementById("disclaimer-modal").style.display = "none";
-            }
-
-            function openModal(event, id) {
-                event.preventDefault();
-                document.getElementById(id).style.display = "block";
-            }
-
-            function closeModal(id) {
-                document.getElementById(id).style.display = "none";
             }
 
             htmx.defineExtension('markdown', {
