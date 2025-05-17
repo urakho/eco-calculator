@@ -12,17 +12,45 @@ body {
 /* Header styling */
 header {
     text-align: center;
-    padding: 2em 0;
+    padding: 1em;
+    background: beige;
+}
+header h1 {
+    color: #0070f3;
 }
 
-/* Main content fills available space */
+/* Main content */
 main {
-    flex: 1;
-    text-align: center;
-    padding: 2em;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+}
+.main-controls {
+    flex: 0 0 auto;
+    padding: 1em 0;
+    background: #f5f5f5;
+    border-bottom: 1px solid #000000;
+}
+.main-container {
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+.main-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.main-container th,
+.main-container td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+.main-container thead th {
+    background: #eee;
 }
 
-/* Footer always at bottom */
+/* Footer styling */
 footer {
     display: flex;
     justify-content: space-between;
@@ -53,13 +81,8 @@ footer {
 .footer-right a:hover {
     text-decoration: underline;
 }
-  
-/* Headline style */
-h1 {
-    color: #0070f3;
-}
 
-/* Main container of the modal */
+/* Modal styling */
 .modal {
     display: none;                   /* hidden by default */
     position: fixed;
@@ -71,8 +94,6 @@ h1 {
     align-items: center;             /* for flex-centering */
     justify-content: center;
 }
-
-/* Content inside the modal */
 .modal-content {
     background-color: #fefefe;
     margin: auto;                    /* with a flex container, auto is enough */
@@ -85,8 +106,6 @@ h1 {
     text-align: center;
     position: relative;              /* for positioning the close button */
 }
-
-/* Buttons inside the modal (e.g., "OK", "Close") */
 .modal-content button,
 .modal button {
     margin-top: 15px;
@@ -102,8 +121,6 @@ h1 {
 .modal button:hover {
     background-color: #005bb5;
 }
-
-/* Body with LICENSE text (or any other pre-block) */
 .modal-body {
     white-space: pre-wrap;
     text-align: center;
