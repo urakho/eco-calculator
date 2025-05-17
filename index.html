@@ -12,81 +12,96 @@
     <body>
         <!-- Header -->
         <header>
-            <h1>Eco Price Calculator</h1>
+            <div style="font-size: xx-large; color: cornflowerblue;">Eco Price Calculator</div>
         </header>
 
         <!-- Main Content -->
         <main>
-            <div class="main-controls">
-                <label>
-                    World:
-                    <select>
-                        <option>Game</option>
-                        <option>My game 2</option>
-                    </select>
-                </label>
-                <button>Add</button>
-                <button>Edit</button>
-                <button>Delete</button>  
+            <div id="price-list" class="pages">
+                <div class="main-controls">
+                    <label>
+                        World:
+                        <select>
+                            <option>Game</option>
+                            <option>My game 2</option>
+                        </select>
+                    </label>
+                    <button onclick="addNewWorld()">Add</button>
+                    <button>Edit</button>
+                    <button>Delete</button>  
+                </div>
+                <div class="main-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th><th>Labor</th><th>$</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                            <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                            <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                            <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="main-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th><th>Labor</th><th>$</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                    </tbody>
-                </table>
+            <div id="world-settings" class="pages" style="display: none;">
+                <div class="settings-caption" id="settings-caption"></div> 
+                <div class="settings-params">
+                    <label>
+                        World name:
+                        <input type="text" id="world-settings.world-name" />
+                    </label>
+                </div>
+                <div class="settings-controls">
+                    <button onclick="createNewWorld()">OK</button>
+                    <button onclick="cancelNewWorld()">Cancel</button>
+                </div>
             </div>
         </main>
 
@@ -163,6 +178,23 @@
                     return marked.parse(text);
                 }
             });
+
+            function addNewWorld() {
+                document.getElementById('settings-caption').innerText='New World';
+                document.getElementById('world-settings.world-name').value='My World';
+                document.getElementById('price-list').style.display='none';
+                document.getElementById('world-settings').style.display='flex';
+            }
+            
+            function createNewWorld() {
+                document.getElementById('price-list').style.display='flex';
+                document.getElementById('world-settings').style.display='none';                
+            }
+            
+            function cancelNewWorld() {
+                document.getElementById('price-list').style.display='flex';
+                document.getElementById('world-settings').style.display='none';                
+            }
         </script>
     </body>
 </html>
