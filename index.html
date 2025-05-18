@@ -12,7 +12,8 @@
     <body>
         <!-- Header -->
         <header>
-            <div style="font-size: xx-large; color: cornflowerblue;">Eco Price Calculator</div>
+            <h1>Eco Price Calculator</h1>
+            <h2 id="caption">Price List</h2>
         </header>
 
         <!-- Main Content -->
@@ -90,8 +91,7 @@
                     </table>
                 </div>
             </div>
-            <div id="world-settings" class="pages" style="display: none;">
-                <div class="settings-caption" id="settings-caption"></div> 
+            <div id="world-settings" class="pages" style="display: none;"> 
                 <div class="settings-params">
                     <label>
                         World name:
@@ -180,18 +180,20 @@
             });
 
             function addNewWorld() {
-                document.getElementById('settings-caption').innerText='New World';
+                document.getElementById('caption').innerText='New World';
                 document.getElementById('world-settings.world-name').value='My World';
                 document.getElementById('price-list').style.display='none';
                 document.getElementById('world-settings').style.display='flex';
             }
             
             function createNewWorld() {
+                document.getElementById('caption').innerText='Price List';
                 document.getElementById('price-list').style.display='flex';
                 document.getElementById('world-settings').style.display='none';                
             }
             
             function cancelNewWorld() {
+                document.getElementById('caption').innerText='Price List';
                 document.getElementById('price-list').style.display='flex';
                 document.getElementById('world-settings').style.display='none';                
             }
