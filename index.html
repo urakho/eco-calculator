@@ -167,36 +167,11 @@
                 document.getElementById("disclaimer-modal").style.display = "block";
             }
 
-            // Accept Disclaimer and set cookie
-            function acceptDisclaimer() {
-                document.cookie = "disclaimerAccepted=true; path=/; max-age=31536000"; // 1 year
-                document.getElementById("disclaimer-modal").style.display = "none";
-            }
-
             htmx.defineExtension('markdown', {
                 transformResponse: function(text, xhr, elt) {
                     return marked.parse(text);
                 }
             });
-
-            function addNewWorld() {
-                document.getElementById('caption').innerText='New World';
-                document.getElementById('world-settings.world-name').value='My World';
-                document.getElementById('price-list').style.display='none';
-                document.getElementById('world-settings').style.display='flex';
-            }
-            
-            function createNewWorld() {
-                document.getElementById('caption').innerText='Price List';
-                document.getElementById('price-list').style.display='flex';
-                document.getElementById('world-settings').style.display='none';                
-            }
-            
-            function cancelNewWorld() {
-                document.getElementById('caption').innerText='Price List';
-                document.getElementById('price-list').style.display='flex';
-                document.getElementById('world-settings').style.display='none';                
-            }
         </script>
     </body>
 </html>
