@@ -22,7 +22,7 @@
                 <div class="main-controls">
                     <label>
                         World:
-                        <select>
+                        <select id="world-select">
                             <option>Game</option>
                             <option>My game 2</option>
                         </select>
@@ -99,7 +99,7 @@
                     </label>
                 </div>
                 <div class="settings-controls">
-                    <button onclick="createNewWorld()">OK</button>
+                    <button id="world-settings.btn-save">Save</button>
                     <button onclick="cancelNewWorld()">Cancel</button>
                 </div>
             </div>
@@ -172,6 +172,8 @@
                     return marked.parse(text);
                 }
             });
+
+            loadWorlds();
         </script>
     </body>
 </html>
