@@ -51,7 +51,7 @@ function saveNewWorld(wid = shortUID()) {
     loadWorlds();                
 }
 
-function cancelNewWorld() {
+function cancelWorld() {
     document.getElementById('caption').innerText ='Price List';
     document.getElementById('price-list').style.display ='flex';
     document.getElementById('world-settings').style.display ='none';                

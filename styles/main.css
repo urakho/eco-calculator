@@ -35,6 +35,11 @@ button:hover {
     background-color: #117ae4;
 }
 
+select, input {
+    padding: 0.25rem;
+    margin-left: 1rem;
+}
+
 h1 {
     font-size: xx-large;
     color: #0070f3;
@@ -64,6 +69,10 @@ main {
 .main-controls {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .main-container {
     flex: 1 1 auto;
@@ -97,6 +106,8 @@ main {
 }
 .settings-params {
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
 }
 .settings-controls {
     padding-top: 1rem;
