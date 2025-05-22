@@ -32,27 +32,38 @@ function acceptDisclaimer() {
 }
 
 function addNewWorld() {
-    document.getElementById('caption').innerText ='New World';
-    document.getElementById('world-settings.world-name').value ='My World';
-    document.getElementById('world-settings.btn-save').onclick = (event) => { saveNewWorld(); };
-    document.getElementById('price-list').style.display ='none';
-    document.getElementById('world-settings').style.display ='flex';
+    document.getElementById('caption').innerText = 'New World';
+    document.getElementById('world-settings.world-name').value = 'My World';
+    document.getElementById('world-settings.btn-save').onclick = (event) => { saveWorld(); };
+    document.getElementById('price-list').style.display = 'none';
+    document.getElementById('world-settings').style.display = 'flex';
 }
 
-function saveNewWorld(wid = shortUID()) {
+function editWorld() {
+    const key = document.getElementById("world-select").value;
+    world = JSON.parse(localStorage.getItem(key));
+    document.getElementById('caption').innerText = 'Edit World';
+    document.getElementById('world-settings.world-name').value = world.name;
+    document.getElementById('world-settings.btn-save').onclick = (event) => { saveWorld(key); };
+    document.getElementById('price-list').style.display = 'none';
+    document.getElementById('world-settings').style.display = 'flex';    
+}
+
+function saveWorld(key = 'world.' + shortUID()) {
     const world = {
         ver: '0.1',
         name: document.getElementById('world-settings.world-name').value
     };
-    localStorage.setItem('world.' + wid, JSON.stringify(world));
-    document.getElementById('caption').innerText ='Price List';
-    document.getElementById('price-list').style.display ='flex';
-    document.getElementById('world-settings').style.display ='none';
-    loadWorlds();                
+    localStorage.setItem(key, JSON.stringify(world));
+    document.getElementById('caption').innerText = 'Price List';
+    document.getElementById('price-list').style.display = 'flex';
+    document.getElementById('world-settings').style.display = 'none';
+    loadWorlds();
+    document.getElementById("world-select").value = key;                
 }
 
 function cancelWorld() {
-    document.getElementById('caption').innerText ='Price List';
-    document.getElementById('price-list').style.display ='flex';
-    document.getElementById('world-settings').style.display ='none';                
+    document.getElementById('caption').innerText = 'Price List';
+    document.getElementById('price-list').style.display = 'flex';
+    document.getElementById('world-settings').style.display = 'none';                
 }
