@@ -49,6 +49,16 @@ function editWorld() {
     document.getElementById('world-settings').style.display = 'flex';    
 }
 
+function deleteWorld() {
+    const key = document.getElementById("world-select").value;
+    world = JSON.parse(localStorage.getItem(key));
+    document.getElementById('caption').innerText = 'Delete World';
+    document.getElementById('world-delete.world-name').innerText = world.name;
+    document.getElementById('world-delete.btn-yes').onclick = (event) => { removeWorld(key); };
+    document.getElementById('price-list').style.display = 'none';
+    document.getElementById('world-delete').style.display = 'flex';
+}    
+
 function saveWorld(key = 'world.' + shortUID()) {
     const world = {
         ver: '0.1',
@@ -62,8 +72,16 @@ function saveWorld(key = 'world.' + shortUID()) {
     document.getElementById("world-select").value = key;                
 }
 
-function cancelWorld() {
+function cancelWorld(id) {
     document.getElementById('caption').innerText = 'Price List';
     document.getElementById('price-list').style.display = 'flex';
-    document.getElementById('world-settings').style.display = 'none';                
+    document.getElementById(id).style.display = 'none';                
+}
+
+function removeWorld(key) {
+    localStorage.removeItem(key);
+    document.getElementById('caption').innerText = 'Price List';
+    document.getElementById('price-list').style.display = 'flex';
+    document.getElementById('world-delete').style.display = 'none';
+    loadWorlds();
 }

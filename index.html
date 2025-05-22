@@ -27,7 +27,7 @@
                     <div style="width: fit-content;">
                         <button onclick="addNewWorld()">Add</button>
                         <button onclick="editWorld()">Edit</button>
-                        <button>Delete</button>
+                        <button onclick="deleteWorld()">Delete</button>
                     </div>  
                 </div>
                 <div class="main-container">
@@ -99,7 +99,16 @@
                 </div>
                 <div class="settings-controls">
                     <button id="world-settings.btn-save">Save</button>
-                    <button onclick="cancelWorld()">Cancel</button>
+                    <button onclick="cancelWorld('world-settings')">Cancel</button>
+                </div>
+            </div>
+            <div id="world-delete" class="pages" style="display: none;"> 
+                <div class="settings-params" style="text-align: center;">
+                    <p>Are you sure you want to delete the <span id="world-delete.world-name" style="font-weight: bold;"></span> world?</p>
+                </div>
+                <div class="settings-controls">
+                    <button id="world-delete.btn-yes">Yes</button>
+                    <button onclick="cancelWorld('world-delete')">No</button>
                 </div>
             </div>
         </main>
