@@ -5,20 +5,18 @@ import { resolve } from 'path';
 
 export default defineConfig({
   root: 'src',
-  publicDir: 'public',
+  publicDir: resolve(__dirname, 'public'),
   build: {
     outDir: resolve(__dirname, 'build'),
-    emptyOutDir: true,
-    rollupOptions: {
-      input: resolve(__dirname, 'src/index.html')
-    }
+    emptyOutDir: true
   },
   plugins: [
     vue(),
     viteStaticCopy({
       targets: [
         { src: '../README.md', dest: '' },
-        { src: '../LICENSE', dest: '' }
+        { src: '../LICENSE', dest: '' },
+        { src: 'main.js', dest: '' }
       ]
     })
   ],
