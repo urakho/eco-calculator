@@ -1,0 +1,30 @@
+{
+  "name": "eco-calculator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ECO Price Calculator is a web application designed to calculate the cost of goods in the game ECO. The project aims to streamline price estimations by considering crafting recipes, upgrade modules, and the base cost of raw materials such as soil, sand, stone, wood, and more.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urakho/eco-calculator.git"
+  },
+  "keywords": [],
+  "author": "Jura Khozin",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/urakho/eco-calculator/issues"
+  },
+  "homepage": "https://github.com/urakho/eco-calculator#readme",
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^6.0.0",
+    "vite-plugin-static-copy": "^3.0.0"
+  }
+}
