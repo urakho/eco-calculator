@@ -4,19 +4,18 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { resolve } from 'path';
 
 export default defineConfig({
-  root: 'src',
-  publicDir: resolve(__dirname, 'public'),
+  publicDir: 'public',
   build: {
-    outDir: resolve(__dirname, 'build'),
+    outDir: 'build',
     emptyOutDir: true
   },
   plugins: [
     vue(),
     viteStaticCopy({
       targets: [
-        { src: '../README.md', dest: '' },
-        { src: '../LICENSE', dest: '' },
-        { src: 'main.js', dest: '' }
+        { src: 'README.md', dest: '' },
+        { src: 'LICENSE', dest: '' },
+        { src: 'src/main.js', dest: 'src' }
       ]
     })
   ],
