@@ -1,13 +1,16 @@
 /* Main layout */
-body {
+.application {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
+    overflow: hidden;
+}
+
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    overflow: hidden;
 }
 
 header {

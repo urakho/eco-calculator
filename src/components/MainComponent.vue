@@ -7,8 +7,8 @@
                 </label>
                 <div style="flex: 1;"></div>
                 <div style="width: fit-content;">
-                    <button onclick="addNewWorld()">Add</button>
-                    <button onclick="editWorld()">Edit</button>
+                    <button onclick="addNewWorld()" style="margin-right: .3rem;">Add</button>
+                    <button onclick="editWorld()" style="margin-right: .3rem;">Edit</button>
                     <button onclick="deleteWorld()">Delete</button>
                 </div>  
             </div>
