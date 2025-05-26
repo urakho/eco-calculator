@@ -95,3 +95,11 @@
         </div>
     </main>
 </template>
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    loadWorlds()
+})
+</script>
