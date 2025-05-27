@@ -13,9 +13,9 @@ const show = ref(false);
 const disclaimer = ref("");
 
 onMounted(async () => {
+    const md = await fetch("/disclaimer.md").then(r => r.text());
+    disclaimer.value = marked.parse(md);
     if (!document.cookie.includes("disclaimerAccepted=true")) {
-        const md = await fetch("/disclaimer.md").then(r => r.text());
-        disclaimer.value = marked.parse(md);
         show.value = true;
     }
 });
@@ -24,4 +24,10 @@ function onAccept() {
     document.cookie = "disclaimerAccepted=true; path=/; max-age=31536000";
     show.value = false;
 }
+
+function open() {
+    show.value = true;
+}
+
+defineExpose({ open });
 </script>

@@ -7,8 +7,20 @@
             </p>
         </div>
         <div class="footer-right">
-            <a href="#" onclick="openModal(event, 'disclaimer-modal')">Disclaimer</a>
+            <a href="#" @click.prevent="openDisclaimer()">Disclaimer</a>
             <a href="#" onclick="openModal(event, 'about-modal')">About</a>
         </div>
     </footer>
+    <DisclaimerModal ref="disclaimerRef" />
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import DisclaimerModal from "./DisclaimerModal.vue";
+
+const disclaimerRef = ref(null);
+
+function openDisclaimer() {
+  disclaimerRef.value?.open();
+}
+</script>

@@ -1,12 +1,3 @@
-function openModal(event, id) {
-    event.preventDefault();
-    document.getElementById(id).style.display = "block";
-}
-
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-
 function shortUID(length = 6) {
     return crypto.randomUUID().replace(/-/g, '').slice(0, length);
 }
