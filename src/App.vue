@@ -1,11 +1,13 @@
 <template>
-    <HeaderComponent />
-    <MainComponent />
-    <FooterComponent />
+    <Header />
+    <Main />
+    <Footer />
+    <DisclaimerModal />
 </template>
 
 <script setup>
-import HeaderComponent from "./components/HeaderComponent.vue";
-import MainComponent from "./components/MainComponent.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
+import Footer from "./components/Footer.vue";
+import DisclaimerModal from "./components/DisclaimerModal.vue";
 </script>

@@ -25,12 +25,6 @@ function loadWorlds() {
     }
 }
 
-// Accept Disclaimer and set cookie
-function acceptDisclaimer() {
-    document.cookie = "disclaimerAccepted=true; path=/; max-age=31536000"; // 1 year
-    document.getElementById("disclaimer-modal").style.display = "none";
-}
-
 function addNewWorld() {
     document.getElementById('caption').innerText = 'New World';
     document.getElementById('world-settings.world-name').value = 'My World';

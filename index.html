@@ -6,25 +6,11 @@
         <title>Eco Price Calculator</title>
         <link rel="stylesheet" href="src/main.css">
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="src/main.js"></script>
     </head>
     <body>
         <div id="app" class="application"></div>
         <script type="module" src="/src/app.js"></script>
-        <!-- Disclaimer Modal -->
-        <div id="disclaimer-modal" class="modal">
-            <div class="modal-content">
-                <div
-                    hx-get="disclaimer.md"
-                    hx-trigger="load"
-                    hx-swap="innerHTML"
-                    hx-ext="markdown"
-                    >
-                </div>
-                <button onclick="acceptDisclaimer()">Accept</button>
-            </div>
-        </div>
 
         <!-- About Modal -->
         <div id="about-modal" class="modal">
@@ -55,11 +41,6 @@
 
         <!-- JavaScript -->
         <script>
-            // Check if disclaimer was accepted
-            if (!document.cookie.includes("disclaimerAccepted=true")) {
-                document.getElementById("disclaimer-modal").style.display = "block";
-            }
-
             htmx.defineExtension('markdown', {
                 transformResponse: function(text, xhr, elt) {
                     return marked.parse(text);
