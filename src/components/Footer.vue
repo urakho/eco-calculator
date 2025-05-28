@@ -24,3 +24,28 @@ function openDisclaimer() {
   disclaimerRef.value?.open();
 }
 </script>
+
+<style scoped>
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: rgb(201, 201, 201);
+}
+.footer-left p {
+    text-align: center;
+}
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+a {
+    text-decoration: none;
+    color: #0070f3;
+}
+a:hover {
+    text-decoration: underline;
+}
+</style>
