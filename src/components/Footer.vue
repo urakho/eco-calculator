@@ -8,20 +8,27 @@
         </div>
         <div class="footer-right">
             <a href="#" @click.prevent="openDisclaimer()">Disclaimer</a>
-            <a href="#" onclick="openModal(event, 'about-modal')">About</a>
+            <a href="#" @click.prevent="openAbout()">About</a>
         </div>
     </footer>
     <DisclaimerModal ref="disclaimerRef" />
+    <AboutModal ref="aboutRef" />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import DisclaimerModal from "./DisclaimerModal.vue";
+import AboutModal from './AboutModal.vue';
 
 const disclaimerRef = ref(null);
+const aboutRef = ref(null);
 
 function openDisclaimer() {
-  disclaimerRef.value?.open();
+    disclaimerRef.value?.open();
+}
+
+function openAbout() {
+    aboutRef.value?.open();
 }
 </script>
 

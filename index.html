@@ -5,26 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Eco Price Calculator</title>
         <link rel="stylesheet" href="src/main.css">
-        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
         <script src="src/main.js"></script>
     </head>
     <body>
         <div id="app" class="application"></div>
         <script type="module" src="/src/app.js"></script>
-
-        <!-- About Modal -->
-        <div id="about-modal" class="modal">
-            <div class="modal-content">
-                <div
-                    hx-get="README.md"
-                    hx-trigger="load"
-                    hx-swap="innerHTML"
-                    hx-ext="markdown"
-                    >
-                </div>
-                <button onclick="closeModal('about-modal')">OK</button>
-            </div>
-        </div>
 
         <!-- License Modal -->
         <div id="license-modal" class="modal">
@@ -38,14 +23,5 @@
                 <button onclick="closeModal('license-modal')">Agree</button>
             </div>
         </div>
-
-        <!-- JavaScript -->
-        <script>
-            htmx.defineExtension('markdown', {
-                transformResponse: function(text, xhr, elt) {
-                    return marked.parse(text);
-                }
-            });
-        </script>
     </body>
 </html>
