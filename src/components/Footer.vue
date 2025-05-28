@@ -3,7 +3,7 @@
         <div class="footer-left">
             <p>
                 &copy; 2025 Jura Khozin. All rights reserved. Licensed under the
-                <a href="#" onclick="openModal(event, 'license-modal')">MIT License</a>.
+                <a href="#" @click.prevent="openLicense()">MIT License</a>.
             </p>
         </div>
         <div class="footer-right">
@@ -13,15 +13,18 @@
     </footer>
     <DisclaimerModal ref="disclaimerRef" />
     <AboutModal ref="aboutRef" />
+    <LicenseModal ref="licenseRef" />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import DisclaimerModal from "./DisclaimerModal.vue";
 import AboutModal from './AboutModal.vue';
+import LicenseModal from './LicenseModal.vue';
 
 const disclaimerRef = ref(null);
 const aboutRef = ref(null);
+const licenseRef = ref(null);
 
 function openDisclaimer() {
     disclaimerRef.value?.open();
@@ -29,6 +32,10 @@ function openDisclaimer() {
 
 function openAbout() {
     aboutRef.value?.open();
+}
+
+function openLicense() {
+    licenseRef.value?.open();
 }
 </script>
 

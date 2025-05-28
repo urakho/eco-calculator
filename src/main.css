@@ -93,11 +93,3 @@ main {
     border-top: 1px solid black;
     text-align: center;
 }
-
-/* Modal styling */
-.modal-body {
-    white-space: pre-wrap;
-    text-align: center;
-    font-family: monospace;
-    margin-bottom: 1rem;                       /* reset possible margins */
-}

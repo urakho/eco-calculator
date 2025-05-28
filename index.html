@@ -10,18 +10,5 @@
     <body>
         <div id="app" class="application"></div>
         <script type="module" src="/src/app.js"></script>
-
-        <!-- License Modal -->
-        <div id="license-modal" class="modal">
-            <div class="modal-content">
-                <pre
-                    class="modal-body"
-                    hx-get="LICENSE"
-                    hx-trigger="load"
-                    hx-swap="innerHTML">
-                </pre>
-                <button onclick="closeModal('license-modal')">Agree</button>
-            </div>
-        </div>
     </body>
 </html>
