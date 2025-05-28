@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/urakho/eco-calculator#readme",
   "dependencies": {
-    "vue": "^3.5.0"
+    "vue": "^3.5.0",
+    "marked": "^15.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
