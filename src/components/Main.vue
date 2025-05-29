@@ -1,77 +1,7 @@
 <template>
     <main>
-        <div id="price-list" class="pages">
-            <div class="main-controls">
-                <label style="width: fit-content;">World:
-                    <select id="world-select" style="width: 25dvw;"></select>
-                </label>
-                <div style="flex: 1;"></div>
-                <div style="width: fit-content;">
-                    <button onclick="addNewWorld()" style="margin-right: .3rem;">Add</button>
-                    <button onclick="editWorld()" style="margin-right: .3rem;">Edit</button>
-                    <button onclick="deleteWorld()">Delete</button>
-                </div>  
-            </div>
-            <div class="main-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th><th>Labor</th><th>$</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                        <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
-                        <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
-                        <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <PriceListPage ref="priceListRef" />
+    <!--
         <div id="world-settings" class="pages" style="display: none;"> 
             <div class="settings-params">
                 <label style="width: 100%; display: flex; flex-direction: row;">
@@ -93,13 +23,27 @@
                 <button onclick="cancelWorld('world-delete')">No</button>
             </div>
         </div>
+    -->
     </main>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import PriceListPage from './PriceListPage.vue';
+
+const priceListRef = ref(null);
 
 onMounted(() => {
-    loadWorlds()
+    priceListRef.value?.open();
 })
 </script>
+
+<style scoped>
+main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    min-height: 0;
+}
+</style>
