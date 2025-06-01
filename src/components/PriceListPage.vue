@@ -10,9 +10,9 @@
             </label>
             <div style="flex: 1;"></div>
             <div style="width: fit-content;">
-                <button onclick="" style="margin-right: .3rem;">Add</button>
-                <button onclick="" style="margin-right: .3rem;">Edit</button>
-                <button onclick="">Delete</button>
+                <button @click="addWorld" style="margin-right: .3rem;">Add</button>
+                <button @click="editWorld" style="margin-right: .3rem;">Edit</button>
+                <button @click="deleteWorld">Delete</button>
             </div>  
         </div>
         <div class="main-container">
@@ -71,6 +71,12 @@
                     <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
                     <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
                     <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                    <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                    <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                    <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
+                    <tr><td>Light Bulb</td><td>720</td><td>27.7</td></tr>
+                    <tr><td>Medium Fishing Trawler</td><td>10286</td><td>395.6</td></tr>
+                    <tr><td>Wild Stew</td><td>63</td><td>2.4</td></tr>
                 </tbody>
             </table>
         </div>
@@ -78,12 +84,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, version } from "vue";
+import { ref, onMounted } from "vue";
 import Page from "./Page.vue";
+import { shortUID, defaultWorld } from "../utils/common";
 
 const show = ref(false);
 const selectedWorld = ref(null);
 const worlds = ref([]);
+
+const emit = defineEmits(['world:settings']);
 
 function loadWorlds() {
     worlds.value = [];
@@ -98,19 +107,23 @@ function loadWorlds() {
     }
 }
 
-function shortUID(length = 6) {
-    return crypto.randomUUID().replace(/-/g, '').slice(0, length);
-}
-
 function createDefaultWorld() {
     for (let key in localStorage) {
         if (key.startsWith("world.")) return; 
     }
-    const defaultWorld = {
-        version: 1,
-        name: "My Game"
-    }
     localStorage.setItem('world.' + shortUID(), JSON.stringify(defaultWorld));
+}
+
+function addWorld() {
+    emit('world:settings', ref(null));
+}
+
+function editWorld() {
+    emit('world:settings', selectedWorld);
+}
+
+function deleteWorld() {
+    // TODO
 }
 
 onMounted(() => {
@@ -122,7 +135,11 @@ function open() {
     show.value = true;
 }
 
-defineExpose({ open });
+function close() {
+    show.value = false
+}
+
+defineExpose({ open, close });
 </script>
 
 <style scoped>

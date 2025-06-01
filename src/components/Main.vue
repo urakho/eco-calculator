@@ -1,19 +1,11 @@
 <template>
     <main>
-        <PriceListPage ref="priceListRef" />
-    <!--
-        <div id="world-settings" class="pages" style="display: none;"> 
-            <div class="settings-params">
-                <label style="width: 100%; display: flex; flex-direction: row;">
-                    World name:
-                    <input type="text" id="world-settings.world-name" style="flex: 1;" />
-                </label>
-            </div>
-            <div class="settings-controls">
-                <button id="world-settings.btn-save">Save</button>
-                <button onclick="cancelWorld('world-settings')">Cancel</button>
-            </div>
+        <div style="text-align: center; margin-bottom: 1rem;">
+            <h2>{{ caption }}</h2>
         </div>
+        <PriceListPage ref="priceListRef" @world:settings="openWorldSettings" />
+        <WorldSettingsPage ref="worldSettingsRef" />
+    <!--
         <div id="world-delete" class="pages" style="display: none;"> 
             <div class="settings-params" style="text-align: center;">
                 <p>Are you sure you want to delete the <span id="world-delete.world-name" style="font-weight: bold;"></span> world?</p>
@@ -30,12 +22,21 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import PriceListPage from './PriceListPage.vue';
+import WorldSettingsPage from './WorldSettingsPage.vue';
 
 const priceListRef = ref(null);
+const worldSettingsRef = ref(null);
+const caption = ref('Price List');
 
 onMounted(() => {
     priceListRef.value?.open();
-})
+});
+
+function openWorldSettings(world) {
+    priceListRef.value?.close();
+    caption.value = world.value ? 'Edit World' : 'New World';
+    worldSettingsRef.value?.open(world);
+}
 </script>
 
 <style scoped>
@@ -45,5 +46,10 @@ main {
     flex-direction: column;
     padding: 0 1rem;
     min-height: 0;
+}
+h2 {
+    font-size: x-large;
+    color: #004391;
+    margin: 0;
 }
 </style>
