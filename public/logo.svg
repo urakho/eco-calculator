@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad2" cx="32" cy="32" r="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c1e6a4"/>
+      <stop offset="100%" stop-color="#4a8123"/>
+    </radialGradient>
+    <!-- Screen gradient -->
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e9f7ed"/>
+      <stop offset="100%" stop-color="#cce7ce"/>
+    </linearGradient>
+    <!-- Buttons gradient -->
+    <linearGradient id="btnGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7fc36a"/>
+      <stop offset="100%" stop-color="#5aa541"/>
+    </linearGradient>
+    <!-- Shadow filter for body -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <!-- Leaf outline gradient -->
+    <linearGradient id="leafGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#84c65c"/>
+      <stop offset="100%" stop-color="#3d6f1b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle with gradient -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGrad2)"/>
+
+  <!-- Calculator body with shadow -->
+  <rect x="16" y="12" width="32" height="40" rx="6" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Calculator screen -->
+  <rect x="20" y="16" width="24" height="10" rx="2" fill="url(#screenGrad)" stroke="#B0D4A0" stroke-width="1"/>
+
+  <!-- Screen display text -->
+  <text x="32" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#3d6f1b">0.00</text>
+
+  <!-- Calculator buttons -->
+  <g>
+    <!-- First button: only one stroke, same as others -->
+    <rect x="20" y="28" width="8" height="8" rx="1.5"
+          fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+
+    <!-- Remaining buttons (each has one uniform green stroke) -->
+    <rect x="28" y="28" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="36" y="28" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="20" y="36" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="28" y="36" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="36" y="36" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="20" y="44" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="28" y="44" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+    <rect x="36" y="44" width="8" height="8" rx="1.5" fill="url(#btnGrad)" stroke="#4e8a3c" stroke-width="0.8"/>
+  </g>
+
+  <!-- Eco leaf with adjusted, aligned arcs -->
+  <path
+    d="M46 14
+       C50 20, 38 30, 32 24
+       C38 18, 46 14, 46 14Z"
+    fill="url(#leafGrad2)" stroke="#2e6b1d" stroke-width="0.8"/>
+
+  <!-- Single centered leaf vein -->
+  <path d="M44 16 C47 19, 39 27, 35 23" stroke="#2e6b1d" stroke-width="0.6" fill="none"/>
+
+  <!-- Calculator highlight reflection -->
+  <ellipse cx="23" cy="18" rx="4" ry="1.5" fill="#ffffff" opacity="0.6"/>
+</svg>
