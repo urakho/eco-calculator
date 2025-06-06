@@ -4,7 +4,7 @@
             <h2>{{ caption }}</h2>
         </div>
         <PriceListPage ref="priceListRef" @world:settings="openWorldSettings" />
-        <WorldSettingsPage ref="worldSettingsRef" />
+        <WorldSettingsPage ref="worldSettingsRef" @close="openPriceList" />
     <!--
         <div id="world-delete" class="pages" style="display: none;"> 
             <div class="settings-params" style="text-align: center;">
@@ -32,10 +32,15 @@ onMounted(() => {
     priceListRef.value?.open();
 });
 
-function openWorldSettings(world) {
+function openWorldSettings(worldKey) {
     priceListRef.value?.close();
-    caption.value = world.value ? 'Edit World' : 'New World';
-    worldSettingsRef.value?.open(world);
+    caption.value = worldKey.value ? 'Edit World' : 'New World';
+    worldSettingsRef.value?.open(worldKey);
+}
+
+function openPriceList(worldKey) {
+    caption.value = 'Price List';
+    priceListRef.value?.open(worldKey);
 }
 </script>
 

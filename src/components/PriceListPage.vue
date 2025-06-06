@@ -2,9 +2,9 @@
     <Page :visible="show">
         <div class="main-controls">
             <label style="width: fit-content;">World:
-                <select v-model="selectedWorld" style="width: 25dvw;" name="world-selector">
+                <select v-model="selectedWorldKey" style="width: 25dvw;" name="world-selector">
                     <option v-for="w in worlds" :key="w.key" :value="w.key">
-                        {{ w.world.name }}
+                        {{ w.name }}
                     </option>
                 </select>
             </label>
@@ -86,10 +86,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Page from "./Page.vue";
-import { shortUID, defaultWorld } from "../utils/common";
+import { shortUID } from "../lib/common";
+import World from "../lib/world";
 
 const show = ref(false);
-const selectedWorld = ref(null);
+const selectedWorldKey = ref(null);
 const worlds = ref([]);
 
 const emit = defineEmits(['world:settings']);
@@ -97,21 +98,20 @@ const emit = defineEmits(['world:settings']);
 function loadWorlds() {
     worlds.value = [];
     for (let key in localStorage) {
-        if (key.startsWith("world.")) {
-            const world = JSON.parse(localStorage.getItem(key));
-            worlds.value.push({ key, world });            
+        if (World.isKey(key)) {
+            const world = World.load(key);
+            if (!world) continue;
+            worlds.value.push({ key, name: world.name });            
         }
     }
-    if (worlds.value.length > 0 && !selectedWorld.value) {
-        selectedWorld.value = worlds.value[0].key;
+    if (worlds.value.length > 0 && !selectedWorldKey.value) {
+        selectedWorldKey.value = worlds.value[0].key;
     }
 }
 
 function createDefaultWorld() {
-    for (let key in localStorage) {
-        if (key.startsWith("world.")) return; 
-    }
-    localStorage.setItem('world.' + shortUID(), JSON.stringify(defaultWorld));
+    const defaultWorld = new World();
+    defaultWorld.save(World.key(shortUID()));
 }
 
 function addWorld() {
@@ -119,7 +119,7 @@ function addWorld() {
 }
 
 function editWorld() {
-    emit('world:settings', selectedWorld);
+    emit('world:settings', selectedWorldKey);
 }
 
 function deleteWorld() {
@@ -127,11 +127,14 @@ function deleteWorld() {
 }
 
 onMounted(() => {
-    createDefaultWorld();
+    if (!World.existsAny()) createDefaultWorld();
     loadWorlds();
 });
 
-function open() {
+function open(worldKey = null) {
+    if (worldKey !== null) {
+        selectedWorldKey.value = worldKey;
+    }
     show.value = true;
 }
 
