@@ -132,6 +132,17 @@ onMounted(() => {
 
 function open(worldKey = null) {
     if (worldKey !== null) {
+        const newWorld = World.load(worldKey);
+        if (newWorld) {
+            const idx = worlds.value.findIndex(w => w.key === worldKey);
+            if (idx !== -1) {
+                // Update the name if already present (e.g. after editing)
+                worlds.value[idx].name = newWorld.name;
+            } else {
+                // World was just created, add to list
+                worlds.value.push({ key: worldKey, name: newWorld.name });
+            }
+        }
         selectedWorldKey.value = worldKey;
     }
     show.value = true;
