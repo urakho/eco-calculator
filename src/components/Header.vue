@@ -5,7 +5,6 @@
         </div>
         <div class="header-center">
             <h1>Eco Price Calculator</h1>
-            <h2 id="caption">Price List</h2>
         </div>
         <div class="header-right">
         </div>
@@ -33,11 +32,6 @@ header {
 h1 {
     font-size: xx-large;
     color: #0070f3;
-    margin: 0;
-}
-h2 {
-    font-size: x-large;
-    color: #004391;
     margin: 0;
 }
 </style>

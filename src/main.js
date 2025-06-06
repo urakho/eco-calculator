@@ -1,21 +1,3 @@
-function shortUID(length = 6) {
-    return crypto.randomUUID().replace(/-/g, '').slice(0, length);
-}
-
-function loadWorlds() {
-    const select = document.getElementById("world-select");
-    select.innerHTML = "";
-    for (let key in localStorage) {
-        if (key.startsWith("world.")) {
-            const world = JSON.parse(localStorage.getItem(key));            
-            const option = document.createElement("option");
-            option.value = key;
-            option.textContent = world.name;
-            select.appendChild(option);
-        }
-    }
-}
-
 function addNewWorld() {
     document.getElementById('caption').innerText = 'New World';
     document.getElementById('world-settings.world-name').value = 'My World';
