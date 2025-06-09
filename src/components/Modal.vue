@@ -58,5 +58,8 @@ export default {
 }
 .modal-buttons {
     margin-top: 1rem;
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
 }
 </style>

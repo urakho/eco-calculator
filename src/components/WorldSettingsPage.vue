@@ -67,5 +67,8 @@ defineExpose({ open });
     margin: 1rem 0;
     border-top: 1px solid black;
     text-align: center;
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
 }
 </style>
