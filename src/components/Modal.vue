@@ -2,7 +2,12 @@
     <div v-if="visible" class="modal">
         <div class="modal-content">
             <slot />
-            <button @click="close">{{ closeText }}</button>
+            <!-- Button group -->
+            <div class="modal-buttons">
+                <button v-for="(button, index) in buttons" :key="index" @click="buttonClick(button.event)">
+                    {{ button.text }}
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -12,12 +17,18 @@ export default {
     name: "Modal",
     props: {
         visible: Boolean,
-        closeText: { type: String, default: "OK" }
+        buttons: { 
+            type: Array, 
+            required: true,
+            validator(value) {
+                return value.length >= 1 && value.length <= 3 &&
+                       value.every(b => typeof b.text === 'string' && typeof b.event === 'string');
+            }
+        }
     },
-    emits: ["click:close"],
     methods: {
-        close() {
-            this.$emit("click:close");
+        buttonClick(eventName) {
+            this.$emit(eventName);
         }
     }
 };
@@ -26,15 +37,16 @@ export default {
 <style scoped>
 .modal {                   
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;             
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .modal-content {
     background-color: #fefefe;
@@ -42,7 +54,12 @@ export default {
     margin: 1rem;
     border-radius: 0.5rem;
     overflow: auto;
-    text-align: center;
-    position: relative;              /* for positioning the close button */
+    position: relative;
+}
+.modal-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
 }
 </style>

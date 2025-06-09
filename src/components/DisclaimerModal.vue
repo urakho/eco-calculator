@@ -1,5 +1,5 @@
 <template>
-    <Modal :visible="show" close-text="Accept" @click:close="onAccept">
+    <Modal :visible="show" :buttons="[ { text: 'Accept', event: 'accept' } ]" @accept="onAccept">
         <div v-html="disclaimer"></div>
     </Modal>
 </template>
