@@ -37,15 +37,16 @@ export default {
 <style scoped>
 .modal {                   
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;             
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 .modal-content {
     background-color: #fefefe;
@@ -53,7 +54,6 @@ export default {
     margin: 1rem;
     border-radius: 0.5rem;
     overflow: auto;
-    text-align: center;
     position: relative;
 }
 .modal-buttons {
