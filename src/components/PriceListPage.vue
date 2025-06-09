@@ -12,7 +12,7 @@
             <div style="width: fit-content;">
                 <button @click="addWorld" style="margin-right: .3rem;">Add</button>
                 <button @click="editWorld" style="margin-right: .3rem;">Edit</button>
-                <button @click="deleteWorld">Delete</button>
+                <button @click="deleteWorld" :disabled="worlds.length === 1">Delete</button>
             </div>  
         </div>
         <div class="main-container">
@@ -80,17 +80,26 @@
             </table>
         </div>
     </Page>
+    <Modal  :visible="worldDeleteModalVisible"
+            :buttons="[ { text: 'Yes', event: 'delete' }, { text: 'No', event: 'cancel' } ]"
+            @delete="confirmWorldDelete" @cancel="cancelWorldDelete">
+        <div style="text-align: center;">
+            <p>Are you sure you want to delete the <span style="font-weight: bold;">{{ deleteWorldName }}</span> world?</p>
+        </div>
+    </Modal>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import Page from "./Page.vue";
+import Modal from "./Modal.vue";
 import { shortUID } from "../lib/common";
 import World from "../lib/world";
 
 const show = ref(false);
 const selectedWorldKey = ref(null);
 const worlds = ref([]);
+const worldDeleteModalVisible = ref(false);
 
 const emit = defineEmits(['world:settings']);
 
@@ -103,7 +112,7 @@ function loadWorlds() {
             worlds.value.push({ key, name: world.name });            
         }
     }
-    if (worlds.value.length > 0 && !selectedWorldKey.value) {
+    if (worlds.value.length > 0) {
         selectedWorldKey.value = worlds.value[0].key;
     }
 }
@@ -122,7 +131,7 @@ function editWorld() {
 }
 
 function deleteWorld() {
-    // TODO
+    worldDeleteModalVisible.value = true;
 }
 
 onMounted(() => {
@@ -149,7 +158,24 @@ function open(worldKey = null) {
 }
 
 function close() {
-    show.value = false
+    show.value = false;
+}
+
+const deleteWorldName = computed(() => {
+    const world = worlds.value.find(w => w.key === selectedWorldKey.value);
+    return world ? world.name : '';
+});
+
+function confirmWorldDelete() {
+    if (selectedWorldKey.value) {
+        localStorage.removeItem(selectedWorldKey.value);
+        loadWorlds();
+    }
+    worldDeleteModalVisible.value = false;
+}
+
+function cancelWorldDelete() {
+    worldDeleteModalVisible.value = false;
 }
 
 defineExpose({ open, close });
@@ -192,5 +218,10 @@ defineExpose({ open, close });
     left: 0;
     z-index: 1;
     background: #eee;
+}
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc;
 }
 </style>
