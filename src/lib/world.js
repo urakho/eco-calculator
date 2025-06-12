@@ -1,7 +1,15 @@
 export default class World {
     constructor(data = {}) {
-        this.version = data.version || 1;
+        this.version = 2;
         this.name = data.name || "My Game";
+        this.server_settings = data.server_settings || {
+            craft_resourse_multiplier: 1.0
+        };
+        this.basic_resources = data.basic_resources || {
+            wood: Math.round((6000 / 354) * 100) / 100,
+            dirt: Math.round((5401 / 282) * 100) / 100,
+            clam: Math.round((6000 / 474) * 100) / 100
+        };
         // TODO
     }
 
