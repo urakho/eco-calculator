@@ -24,6 +24,5 @@ button:hover {
 }
 select, input {
     padding: 0.25rem;
-    margin-left: 1rem;
 }
 </style>

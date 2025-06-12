@@ -2,7 +2,7 @@
     <Page :visible="show">
         <div class="main-controls">
             <label style="width: fit-content;">World:
-                <select v-model="selectedWorldKey" style="width: 25dvw;" name="world-selector">
+                <select v-model="selectedWorldKey" style="width: 25dvw; margin-left: 1rem;" name="world-selector">
                     <option v-for="w in worlds" :key="w.key" :value="w.key">
                         {{ w.name }}
                     </option>
