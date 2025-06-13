@@ -1,0 +1,114 @@
+{
+    "goods": [
+        {
+            "name": "Adobe",
+            "id": "adobe",
+            "type": "crafted",
+            "recipes": [
+                {
+                    "name": "Adobe Recipe",
+                    "id": "adobe_recipe",
+                    "station": "workbench",
+                    "quantity": 4,
+                    "labor": 20,
+                    "ingredients": [
+                        {
+                            "id": "dirt",
+                            "quantity": 1
+                        },
+                        {
+                            "id": "wood",
+                            "quantity": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Dirt",
+            "id": "dirt",
+            "type": "harvested",
+            "recipes": [
+                {
+                    "ingredient": "dirt"
+                }
+            ]
+        },
+        {
+            "name": "Log",
+            "id": "wood",
+            "type": "harvested",
+            "recipes": [
+                {
+                    "ingredient": "wood"
+                }
+            ]
+        },
+        {
+            "name": "Adobe Door",
+            "id": "adobe_door",
+            "type": "crafted",
+            "recipes": [
+                {
+                    "name": "Adobe Door Recipe",
+                    "id": "adobe_door_recipe",
+                    "station": "workbench",
+                    "quantity": 1,
+                    "labor": 60,
+                    "ingredients": [
+                        {
+                            "id": "adobe",
+                            "quantity": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Board",
+            "id": "board",
+            "type": "crafted",
+            "recipes": [
+                {
+                    "name": "Workbench Board",
+                    "id": "workbench_board",
+                    "station": "workbench",
+                    "quantity": 1,
+                    "labor": 40,
+                    "ingredients": [
+                        {
+                            "id": "wood",
+                            "quantity": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Carpentry Board",
+                    "id": "carpentry_board",
+                    "station": "carpentry table",
+                    "quantity": 1,
+                    "labor": 25,
+                    "ingredients": [
+                        {
+                            "id": "wood",
+                            "quantity": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Sawmill Board",
+                    "id": "sawmill_board",
+                    "station": "sawmill",
+                    "quantity": 3,
+                    "labor": 20,
+                    "ingredients": [
+                        {
+                            "id": "wood",
+                            "quantity": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
